@@ -1,0 +1,88 @@
+body {
+  background-color: aliceblue;
+}
+/*Контент  */
+span {
+  /* Курсив */
+  font-style: italic;
+}
+.bold-text {
+  /* Жирный шрифт */
+  font-weight: bold;
+  font-style: normal;
+}
+.list-conteiner {
+  /* Содержание */
+  display: inline-block;
+  border-style: solid;
+  border-width: 0.5px;
+  padding-right: 20px;
+}
+.list-conteiner > p {
+  /* Само слово содержание */
+  text-align: center;
+  font-weight: bold;
+}
+.img-conteiner {
+  /* Фотка справа */
+  float: right;
+  padding: 5px;
+  border-style: solid;
+  border-width: 0.5px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.standart {
+  /* Текст под фото */
+  text-align: left;
+}
+.right-perv {
+  /* Блок для текста справа */
+  float: right;
+  text-align: left;
+}
+.left-perv {
+  /* Блок для текста слева */
+  float: left;
+}
+.content {
+  padding-left: 15px;
+}
+/* Верхняя навигационная панель */
+.nav-conteiner {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-conteiner > nav > ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-conteiner > nav > ul > li > a {
+  display: block;
+  padding: 10px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+/* Левая навигационная панель */
+.page {
+  display: flex;
+  justify-content: center;
+}
+.header {
+  width: 11%;
+  text-align: center;
+}
+.header > ol {
+  list-style: none;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  margin: 10px;
+  padding: 0;
+  text-align: left;
+}
+.section {
+  width: 87%;
+}
