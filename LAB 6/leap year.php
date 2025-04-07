@@ -14,10 +14,16 @@
     <?php
     if (!empty($_POST["year"])) {
         $year = $_POST["year"];
-        if (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0)) {
-            echo "<p>YES</p>";
+
+        // Проверяем: год должен быть числом от 1 до 30000
+        if (ctype_digit($year) && $year >= 1 && $year <= 30000) {
+            if (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0)) {
+                echo "<p>YES</p>";
+            } else {
+                echo "<p>NO</p>";
+            }
         } else {
-            echo "<p>NO</p>";
+            echo "<p>Введите корректный год от 1 до 30000.</p>";
         }
     }
     ?>
