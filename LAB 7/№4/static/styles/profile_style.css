@@ -1,0 +1,61 @@
+.avatar {
+  position: absolute;
+  width: 123px;        
+  height: 123px;    
+  object-fit: cover;   
+  border-radius: 50%;  
+  overflow: hidden;   
+}
+.description {
+  width: 361px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px; 
+}
+.name {
+  font-size: 32px;
+  letter-spacing: -0.25px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+.text {
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: -0.15px;
+  padding-bottom: 12px;
+}
+.posts {
+  position: relative;
+  width: 101px;
+  height: 30px;
+  left: 130px;
+  display: flex;
+  align-items: center;
+  background-color: #2222220d;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+.posts_img {
+  width: 16px;
+  height: 16px;
+}
+.posts_p {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.15px;
+  padding-left: 6px;
+}
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 90%;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.photos_img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1; 
+  object-fit: cover;
+}
