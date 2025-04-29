@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генератор паролей</title>
+  </head>
+  <body>
+    <h1>Генератор паролей</h1>
+    <button onclick="generatePassword()">Сгенерировать пароль</button>
+    <div id="password"></div>
+
+    <script>
+      function generatePassword() {
+        const lowercase = "abcdefghijklmnopqrstuvwxyz";
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "0123456789";
+        const specials = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+        let password = [
+          lowercase[Math.floor(Math.random() * lowercase.length)],
+          uppercase[Math.floor(Math.random() * uppercase.length)],
+          numbers[Math.floor(Math.random() * numbers.length)],
+          specials[Math.floor(Math.random() * specials.length)],
+        ];
+        const allChars = lowercase + uppercase + numbers + specials;
+        while (password.length < 8) {
+          password.push(allChars[Math.floor(Math.random() * allChars.length)]);
+        }
+        password = password.sort(() => Math.random() - 0.5).join("");
+        document.getElementById("password").textContent = password;
+      }
+    </script>
+  </body>
+</html>

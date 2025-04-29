@@ -1,0 +1,74 @@
+.news {
+  position: absolute;
+  top: 73px;
+  left: 482px;
+  display: block;
+  width: 474px;
+}
+.header {
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+}
+.header_w {
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  top: 12px;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+.link {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: black;
+  text-decoration: underline;
+}
+.header_p {
+  height: 18px;
+  font-size: 14px;
+  padding-left: 10px;
+  width: 120px;
+}
+.pensil {
+  padding-left: 298px;
+}
+.new_photo {
+  position: relative;
+  width: 474px;
+  top: 16px;
+}
+.heart {
+  position: relative;
+  width: 68px;
+  height: 30px;
+  top: 28px;
+  display: flex;
+  align-items: center;
+  background-color: #2222220d;
+  border-radius: 8px;
+  padding-left: 12px;
+}
+.heart_p {
+  padding-left: 3px;
+}
+.info {
+  padding-top: 46px;
+  font-size: 15px;
+  letter-spacing: -0.15px;
+}
+.more {
+  padding-bottom: 8px;
+  color: #22222280;
+}
+.time {
+  padding-bottom: 20px;
+  color: #22222280;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="static/styles/menu_style.css" />
+    <link rel="stylesheet" href="static/styles/login_style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img src="static/images/men.png" alt="men" class="header_img" />
+      <h1 class="header_h1">Войти</h1>
+    </div>
+    <form class="entry">
+      <div class="email">
+        <p class="text">Электропочта</p>
+        <input type="email" class="input" />
+        <p class="shape">Введите электропочту в формате *****@***.**</p>
+      </div>
+      <div class="password">
+        <p class="text">Пароль</p>
+        <input type="password" class="input" />
+        <button type="button" class="eye-button">
+          <img src="static/images/oko.png" alt="oko" />
+        </button>
+      </div>
+      <a href="home.html">
+        <input type="button" value="Продолжить"  class="submit"/>
+    </form>
+  </body>
+</html>

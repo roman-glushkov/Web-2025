@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Подсчет гласных букв</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="countVowels()">Посчитать гласные</button>
+    <div id="result"></div>
+    <script>
+        function countVowels() {
+            const input = document.getElementById('input').value;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            if (!input.trim()) {
+                resultDiv.innerHTML = '<span>Введите слово или строку!</span>';
+                return;
+            }
+            const vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
+            const foundVowels = [];
+            const lowerStr = input.toLowerCase();
+            for (let char of lowerStr) {
+                if (vowels.includes(char)) {
+                    foundVowels.push(char);
+                }
+            }
+            if (foundVowels.length === 0) {
+                resultDiv.innerHTML = '<span>Введите строку, содержащую гласные буквы!</span>';
+            } else {
+                resultDiv.innerHTML = `
+                    Найдено гласных: ${foundVowels.length}<br>
+                    Гласные буквы: ${foundVowels.join(', ')}
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

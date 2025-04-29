@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Объединение объектов</title>
+</head>
+<body>
+    <div class="input-group">
+        <label>Объект 1</label><br>
+        <input type="text" id="obj1">
+    </div>
+    <div class="input-group">
+        <label>Объект 2</label><br>
+        <input type="text" id="obj2">
+    </div>
+    <button onclick="mergeObjects()">Объединить</button>
+    <div id="result"></div>
+    <script>
+        function mergeObjects() {
+            const obj1Input = document.getElementById('obj1').value.trim();
+            const obj2Input = document.getElementById('obj2').value.trim();
+            const resultDiv = document.getElementById('result');
+            try {
+                const obj1 = parseInput(obj1Input);
+                const obj2 = parseInput(obj2Input);
+                const merged = {};
+                for (const key in obj1) {
+                    merged[key] = obj1[key];
+                }
+                for (const key in obj2) {
+                    merged[key] = obj2[key];
+                }  
+                resultDiv.textContent = JSON.stringify(merged, null, 2);
+            } catch (e) {
+                resultDiv.textContent = 'Ошибка: ' + e.message;
+            }
+        }
+        function parseInput(input) {
+            if (!input) return {};
+            const obj = {};
+            const pairs = input.split(',');
+            for (const pair of pairs) {
+                const trimmed = pair.trim();
+                if (!trimmed) continue;
+                const colonIndex = trimmed.indexOf(':');
+                if (colonIndex === -1) {
+                    throw new Error('Неверный формат. Используйте "ключ:значение"');
+                } 
+                const key = trimmed.substring(0, colonIndex).trim();
+                const value = trimmed.substring(colonIndex + 1).trim();
+                if (!key) {
+                    throw new Error('Ключ не может быть пустым');
+                }
+                // Пробуем преобразовать значение в число, если возможно
+                obj[key] = isNaN(value) ? value : Number(value);
+            }
+            return obj;
+        }
+    </script>
+</body>
+</html>
