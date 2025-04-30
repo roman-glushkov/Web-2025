@@ -15,7 +15,7 @@ body {
 
 .menu {
   width: 72px;
-  height: 1080px;
+  height: 100vh;
   padding: 48px 0px 0px 24px;
   border-right: 1px solid #2222220d;
 }

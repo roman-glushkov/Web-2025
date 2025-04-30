@@ -14,5 +14,5 @@ BEGIN
   WRITELN('QUERY_STRING: ', QueryString);
   WRITELN('CONTENT_LENGTH: ', ContentLength);
   WRITELN('HTTP_USER_AGENT: ', UserAgent);
-  WRITELN('HTTP_HOST: ', Host);
+  WRITELN('HTTP_HOST: ', Host)
 END.

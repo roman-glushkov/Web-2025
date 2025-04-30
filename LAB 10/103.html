@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="UTF-8" />
     <title>Подсчет элементов</title>
-</head>
-<body>
-    <input type="text" id="input">
+  </head>
+  <body>
+    <input type="text" id="input" />
     <button onclick="processInput()">Посчитать</button>
     <div id="result"></div>
     <script>
-        function processInput() {
-            const input = document.getElementById('input').value.trim();
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '';
-            if (!input) {
-                resultDiv.innerHTML = '<span class="error">Введите элементы!</span>';
-                return;
-            }
-            const elements = input.split(',').map(item => {
-                const trimmed = item.trim();
-                return isNaN(trimmed) || trimmed === '' ? trimmed : Number(trimmed);
-            });
-            const result = uniqueElements(elements);
-            resultDiv.innerHTML = JSON.stringify(result, null, 2);
+      function processInput() {
+        const input = document.getElementById("input").value.trim();
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+        if (!input) {
+          resultDiv.innerHTML = '<span class="error">Введите элементы!</span>';
+          return;
         }
-        function uniqueElements(arr) {
-            const countMap = {};
-            for (const item of arr) {  
-                const key = String(item);
-                countMap[key] = (countMap[key] || 0) + 1;
-            }
-            return countMap;
+        const elements = input.split(",").map((item) => {
+          const trimmed = item.trim();
+          const result =
+            isNaN(trimmed) || trimmed === "" ? trimmed : Number(trimmed);
+          return result;
+        });
+        const result = uniqueElements(elements);
+        resultDiv.innerHTML = JSON.stringify(result, null, 2);
+      }
+      function uniqueElements(arr) {
+        const countMap = {};
+        for (const item of arr) {
+          const key = String(item);
+          countMap[key] = (countMap[key] || 0) + 1;
         }
+        return countMap;
+      }
     </script>
-</body>
+  </body>
 </html>

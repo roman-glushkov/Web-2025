@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Map и Filter</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <div id="mapResult"></div>
+    <div id="filterResult"></div>
+    <script>
+      const input = document.getElementById("input");
+      const mapResult = document.getElementById("mapResult");
+      const filterResult = document.getElementById("filterResult");
+
+      input.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const numbers = input.value.split(",").map(Number);
+          const mapped = numbers.map((n) => n * 3);
+          const filtered = mapped.filter((n) => n > 10);
+          mapResult.textContent = "Результат после map: " + mapped.join(", ");
+          filterResult.textContent =
+            "Результат после filter: " + filtered.join(", ");
+        }
+      });
+    </script>
+  </body>
+</html>

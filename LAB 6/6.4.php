@@ -6,14 +6,34 @@
 <body>
     <form method="post">
         <input type="text" name="date">
+        <input type="submit" value="Определить">
     </form>
     <?php
     if (!empty($_POST["date"])) {
         $input = $_POST["date"];
-        if (preg_match('/^(\d{2})([^\w\d])(\d{2})\2(\d{4})$/', $input, $matches)) {
-            $d = (int)$matches[1]; 
-            $m = (int)$matches[3];  
-            $y = (int)$matches[4];  
+        if (preg_match('/^(\d{1,2})([^\w\d])(\d{1,2})\2(\d{2,4})$/', $input, $matches)) {
+            $first = (int)$matches[1];
+            $second = (int)$matches[3];
+            $year = (int)$matches[4];
+            if ($second <= 12) {
+                $d = $first;
+                $m = $second;
+            } elseif ($first <= 12 && $second > 12) {
+                $d = $second;
+                $m = $first;
+            } else {
+                echo "<p>Ошибка: введите корректную дату (день или месяц не может быть больше 12 одновременно)</p>";
+                exit;
+            }
+            if ($year < 100) {
+                if ($year <= 30) {
+                    $y = 2000 + $year;
+                } else {
+                    $y = 1900 + $year;
+                }
+            } else {
+                $y = $year;
+            }
             if (checkdate($m, $d, $y)) {
                 $sign = match(true) {
                     ($m == 1 && $d >= 20) || ($m == 2 && $d <= 18) => 'Водолей',
@@ -30,12 +50,13 @@
                     ($m == 12 && $d >= 22) || ($m == 1 && $d <= 19) => 'Козерог',
                     default => 'Неизвестно'
                 };
+                echo "<p>Дата: $d.$m.$y</p>";
                 echo "<p>Ваш знак: <b>$sign</b></p>";
             } else {
                 echo "<p>Некорректная дата!</p>";
             }
         } else {
-            echo "<p>Используйте формат ДД[Ch]ММ[Ch]ГГГГ, где [Ch] - любой символ кроме букв и цифр</p>";
+            echo "<p>Используйте формат ДД[Ch]ММ[Ch]ГГГГ или ДД[Ch]ММ[Ch]ГГ, где [Ch] - любой символ кроме букв и цифр</p>";
         }
     }
     ?>

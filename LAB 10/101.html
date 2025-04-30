@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="UTF-8" />
     <title>Проверка простых чисел</title>
-</head>
-<body>
-    <input type="text" id="input">
+  </head>
+  <body>
+    <input type="text" id="input" />
     <button onclick="CheckNumber()">Проверить</button>
     <div id="result"></div>
     <script>
-        function CheckNumber() {
-            const input = document.getElementById('input').value.trim();
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '';
-            if (!input) {
-                resultDiv.innerHTML = '<span>Введите числа!</span>';
-                return;
-            }
-            const numbers = input.split(',');
-            for (let item of numbers) {
-                const num = parseInt(item.trim());
-                
-                if (isNaN(num)) {
-                    resultDiv.innerHTML = '<span>Ошибка: можно вводить только числа!</span>';
-                    return;
-                }
-                const isPrime = isPrimeNumber(num);
-                resultDiv.innerHTML += `${num} - ${isPrime ? 'простое' : 'не простое'} число<br>`;
-            }
+      function CheckNumber() {
+        const input = document.getElementById("input").value.trim();
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+        if (!input) {
+          resultDiv.innerHTML = "<span>Введите числа!</span>";
+          return;
         }
-        function isPrimeNumber(num) {
-            if (num < 2) return false;
-            for (let i = 2; i <= Math.sqrt(num); i++) {
-                if (num % i === 0) return false;
-            }
-            return true;
+        const numbers = input.split(",");
+        for (let item of numbers) {
+          const num = parseInt(item.trim());
+
+          if (isNaN(num)) {
+            resultDiv.innerHTML =
+              "<span>Ошибка: можно вводить только числа!</span>";
+            return;
+          }
+          const isPrime = isPrimeNumber(num);
+          resultDiv.innerHTML += `${num} - ${
+            isPrime ? "простое" : "не простое"
+          } число<br>`;
         }
+      }
+      function isPrimeNumber(num) {
+        if (typeof num === "number") {
+        }
+        if (Array.isArray(num)) {
+        }
+        if (num < 2) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
     </script>
-</body>
+  </body>
 </html>
