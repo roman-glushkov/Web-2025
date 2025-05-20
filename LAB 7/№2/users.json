@@ -3,18 +3,12 @@
     "id": 1,
     "name": "Ваня Денисов",
     "avatar": "static/images/ivan.png",
-    "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!",
-    "posts_count": 43,
-    "gallery": [
-      "static/images/street.png",
-      "static/images/houses.png",
-      "static/images/cupcake.png",
-      "static/images/party.png",
-      "static/images/rocets.png",
-      "static/images/book.png",
-      "static/images/park.jpg",
-      "static/images/two.jpg",
-      "static/images/pot.jpg"
-    ]
+    "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!"
+  },
+  {
+    "id": 2,
+    "name": "Лиза Демина",
+    "avatar": "static/images/girl.png",
+    "description": "Привет! Я системный аналитик в ACME :) Тут моя жизнь только для самых классных!"
   }
 ]

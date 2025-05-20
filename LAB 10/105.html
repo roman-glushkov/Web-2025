@@ -2,50 +2,36 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Извлечение имён пользователей</title>
+    <title>Сортировка имён по ID</title>
+    <style>
+      body {
+        max-width: 300px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+      }
+    </style>
   </head>
   <body>
-    <textarea id="userInput"></textarea>
-    <button onclick="extractNames()">Получить имена</button>
+    <h2>Сортировка имён по ID</h2>
+    <textarea id="users">
+[
+  {"id":3,"name":"Alice"},
+  {"id":1,"name":"Bob"},
+  {"id":2,"name":"Charlie"}
+]</textarea
+    >
+    <button onclick="sortNames()">Получить имена</button>
     <div id="result"></div>
-    <script>
-      function extractNames() {
-        const input = document.getElementById("userInput").value.trim();
-        const resultDiv = document.getElementById("result");
-        if (!input) {
-          resultDiv.textContent = "Введите данные пользователей";
-          return;
-        }
-        try {
-          const users = parseUsers(input);
-          const names = users.map((user) => user.name);
 
-          resultDiv.textContent = JSON.stringify(names, null, 2);
-        } catch (e) {
-          resultDiv.textContent = "Ошибка: " + e.message;
-        }
-      }
-      function parseUsers(input) {
-        const lines = input.split("\n");
-        const users = [];
-        for (const line of lines) {
-          if (!line.trim()) continue;
-          const user = {};
-          const parts = line.split(",");
-          for (const part of parts) {
-            const [key, value] = part.split(":").map((item) => item.trim());
-            if (key === "id") {
-              user.id = parseInt(value);
-            } else if (key === "name") {
-              user.name = value;
-            }
-          }
-          if (!user.id || !user.name) {
-            throw new Error(`Неверный формат строки: "${line}"`);
-          }
-          users.push(user);
-        }
-        return users.sort((a, b) => a.id - b.id);
+    <script>
+      function sortNames() {
+        const users = JSON.parse(document.getElementById("users").value);
+        document.getElementById("result").textContent = users
+          .sort((a, b) => a.id - b.id)
+          .map((user) => user.name)
+          .join(", ");
       }
     </script>
   </body>

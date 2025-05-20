@@ -1,13 +1,13 @@
-PROGRAM QUERYSTRING;
+PROGRAM QueryString;
 USES DOS;
 
-FUNCTION GETQUERYSTRINGPARAMETER(key: STRING): STRING;
+FUNCTION GetQueryParam(key: STRING): STRING;
 VAR
   queryString, param, foundKey, foundValue: STRING;
   posAmp, posEq, startPos: INTEGER;
 BEGIN
   queryString := GETENV('QUERY_STRING');
-  GETQUERYSTRINGPARAMETER := '';
+  GetQueryParam := '';
   startPos := 1; 
   WHILE startPos <= LENGTH(queryString) DO
   BEGIN
@@ -25,7 +25,7 @@ BEGIN
         IF foundKey = key 
         THEN
           BEGIN
-            GETQUERYSTRINGPARAMETER := foundValue;
+            GetQueryParam := foundValue;
             EXIT  
           END
       END;
@@ -38,9 +38,9 @@ VAR
 BEGIN
   WRITELN('Content-Type: text/plain');
   WRITELN;  
-  firstName := GETQUERYSTRINGPARAMETER('first_name');
-  lastName := GETQUERYSTRINGPARAMETER('last_name');
-  age := GETQUERYSTRINGPARAMETER('age');
+  firstName := GetQueryParam('first_name');
+  lastName := GetQueryParam('last_name');
+  age := GetQueryParam('age');
   WRITELN('First Name: ', firstName);
   WRITELN('Last Name: ', lastName);
   WRITELN('Age: ', age)

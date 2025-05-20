@@ -1,6 +1,17 @@
 <?php
 // Загружаем посты из JSON
 $posts = json_decode(file_get_contents('posts.json'), true);
+$users = json_decode(file_get_contents('users.json'), true);
+
+// Функция для получения имени пользователя по ID
+function getUserById($users, $id) {
+    foreach ($users as $user) {
+        if ($user['id'] == $id) {
+            return $user;
+        }
+    }
+    return null;
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +40,16 @@ $posts = json_decode(file_get_contents('posts.json'), true);
   </div>
 
   <div class="news">
-    <?php foreach ($posts as $post): ?>
+    <?php foreach ($posts as $post): 
+        $user = getUserById($users, $post['user_id']);
+        if ($user):
+    ?>
       <div class="header">
         <a href="profile.php">
-          <img src="<?= $post['user_avatar'] ?>" alt="аватар" class="avatar" />
+          <img src="<?= $user['avatar'] ?>" alt="аватар" class="avatar" />
         </a>
         <a href="profile.php" class="link">
-          <p class="header_p"><?= $post['user_name'] ?></p>
+          <p class="header_p"><?= $user['name'] ?></p>
         </a>
         <a href="profile.php">
           <img src="static/images/pensil.png" alt="карандаш" class="pensil" />
@@ -51,7 +65,7 @@ $posts = json_decode(file_get_contents('posts.json'), true);
         <a href="#"><p class="more">ещё</p></a>
         <p class="time"><?= date('d.m.Y H:i', $post['timestamp']) ?></p>
       </div>
-    <?php endforeach; ?>
+    <?php endif; endforeach; ?>
   </div>
 </body>
 </html>

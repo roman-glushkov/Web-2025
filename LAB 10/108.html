@@ -2,27 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Map и Filter</title>
+    <title>Обработка чисел</title>
   </head>
   <body>
-    <input type="text" id="input" />
-    <div id="mapResult"></div>
-    <div id="filterResult"></div>
-    <script>
-      const input = document.getElementById("input");
-      const mapResult = document.getElementById("mapResult");
-      const filterResult = document.getElementById("filterResult");
+    <h2>Обработка чисел</h2>
+    <input type="text" id="numbers" value="2, 5, 8, 10, 3" />
+    <button onclick="processNumbers()">
+      Умножить на 3 и отфильтровать >10
+    </button>
+    <div class="result">
+      <h3>Результат после умножения на 3:</h3>
+      <div id="mapResult"></div>
+      <h3>Результат после фильтрации (>10):</h3>
+      <div id="filterResult"></div>
+    </div>
 
-      input.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          const numbers = input.value.split(",").map(Number);
-          const mapped = numbers.map((n) => n * 3);
-          const filtered = mapped.filter((n) => n > 10);
-          mapResult.textContent = "Результат после map: " + mapped.join(", ");
-          filterResult.textContent =
-            "Результат после filter: " + filtered.join(", ");
-        }
-      });
+    <script>
+      function processNumbers() {
+        const input = document.getElementById("numbers").value;
+        const numbers = input.split(",").map((item) => parseFloat(item.trim()));
+
+        const mapped = numbers.map((n) => n * 3);
+        document.getElementById("mapResult").textContent = mapped.join(", ");
+
+        const filtered = mapped.filter((n) => n > 10);
+        document.getElementById("filterResult").textContent =
+          filtered.join(", ");
+      }
     </script>
   </body>
 </html>

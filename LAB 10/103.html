@@ -1,38 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Подсчет элементов</title>
-  </head>
+  <meta charset="UTF-8" />
   <body>
-    <input type="text" id="input" />
-    <button onclick="processInput()">Посчитать</button>
-    <div id="result"></div>
+    <h2>Подсчет уникальных элементов</h2>
+    <input type="text" id="elements" value="привет, hello, 1, 1" />
+    <button onclick="countElements()">Посчитать</button>
+    <pre id="result"></pre>
+
     <script>
-      function processInput() {
-        const input = document.getElementById("input").value.trim();
-        const resultDiv = document.getElementById("result");
-        resultDiv.innerHTML = "";
-        if (!input) {
-          resultDiv.innerHTML = '<span class="error">Введите элементы!</span>';
-          return;
+      function countElements() {
+        const input = document.getElementById("elements").value;
+        const items = input.split(",").map((item) => item.trim());
+        const result = {};
+
+        for (let item of items) {
+          if (result[item]) {
+            result[item]++;
+          } else {
+            result[item] = 1;
+          }
         }
-        const elements = input.split(",").map((item) => {
-          const trimmed = item.trim();
-          const result =
-            isNaN(trimmed) || trimmed === "" ? trimmed : Number(trimmed);
-          return result;
-        });
-        const result = uniqueElements(elements);
-        resultDiv.innerHTML = JSON.stringify(result, null, 2);
-      }
-      function uniqueElements(arr) {
-        const countMap = {};
-        for (const item of arr) {
-          const key = String(item);
-          countMap[key] = (countMap[key] || 0) + 1;
-        }
-        return countMap;
+
+        document.getElementById("result").textContent = Object.entries(result)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join("\n");
       }
     </script>
   </body>

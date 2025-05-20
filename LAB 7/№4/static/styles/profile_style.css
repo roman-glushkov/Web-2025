@@ -1,16 +1,15 @@
 .avatar {
   position: absolute;
-  width: 123px;        
-  height: 123px;    
-  object-fit: cover;   
-  border-radius: 50%;  
-  overflow: hidden;   
+  top: 97px;
+  left: 658.5px;
 }
 .description {
+  position: absolute;
+  top: 240px;
+  left: 539.5px;
   width: 361px;
-  margin: 0 auto;
+  height: auto;
   text-align: center;
-  padding-top: 20px; 
 }
 .name {
   font-size: 32px;
@@ -46,16 +45,14 @@
   padding-left: 6px;
 }
 .photos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  width: 90%;
-  margin: 30px auto;
-  padding: 0 20px;
+  position: absolute;
+  top: 402px;
+  left: 234px;
+  width: 976px;
+  height: auto;
+  gap: 2.48px;
 }
 .photos_img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1; 
-  object-fit: cover;
+  width: 322.35px;
+  height: 322.35px;
 }

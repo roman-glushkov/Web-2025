@@ -1,60 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Объединение объектов</title>
-  </head>
+  <meta charset="UTF-8" />
   <body>
-    <div class="input-group">
-      <label>Объект 1</label><br />
-      <input type="text" id="obj1" />
-    </div>
-    <div class="input-group">
-      <label>Объект 2</label><br />
-      <input type="text" id="obj2" />
-    </div>
-    <button onclick="mergeObjects()">Объединить</button>
-    <div id="result"></div>
+    <h2>Объединение объектов</h2>
+    <p>Объект 1 (JSON):</p>
+    <input type="text" id="obj1" value='{"a":1,"b":2}' />
+    <p>Объект 2 (JSON):</p>
+    <input type="text" id="obj2" value='{"b":3,"c":4}' />
+    <button onclick="merge()">Объединить</button>
+    <pre id="result"></pre>
+
     <script>
-      function mergeObjects() {
-        const obj1Input = document.getElementById("obj1").value.trim();
-        const obj2Input = document.getElementById("obj2").value.trim();
-        const resultDiv = document.getElementById("result");
-        try {
-          const obj1 = parseInput(obj1Input);
-          const obj2 = parseInput(obj2Input);
-          const merged = {};
-          for (const key in obj1) {
-            merged[key] = obj1[key];
-          }
-          for (const key in obj2) {
-            merged[key] = obj2[key];
-          }
-          resultDiv.textContent = JSON.stringify(merged, null, 2);
-        } catch (e) {
-          resultDiv.textContent = "Ошибка: " + e.message;
-        }
-      }
-      function parseInput(input) {
-        if (!input) return {};
-        const obj = {};
-        const pairs = input.split(",");
-        for (const pair of pairs) {
-          const trimmed = pair.trim();
-          if (!trimmed) continue;
-          const colonIndex = trimmed.indexOf(":");
-          if (colonIndex === -1) {
-            throw new Error('Неверный формат. Используйте "ключ:значение"');
-          }
-          const key = trimmed.substring(0, colonIndex).trim();
-          const value = trimmed.substring(colonIndex + 1).trim();
-          if (!key) {
-            throw new Error("Ключ не может быть пустым");
-          }
-          // Пробуем преобразовать значение в число, если возможно
-          obj[key] = isNaN(value) ? value : Number(value);
-        }
-        return obj;
+      function merge() {
+        const obj1 = JSON.parse(document.getElementById("obj1").value || "{}");
+        const obj2 = JSON.parse(document.getElementById("obj2").value || "{}");
+        const merged = { ...obj1, ...obj2 };
+        document.getElementById("result").textContent = JSON.stringify(merged);
       }
     </script>
   </body>
