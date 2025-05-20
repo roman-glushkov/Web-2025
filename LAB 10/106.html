@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Метод map для объектов</title>
+  </head>
+  <body>
+    <input id="obj" value='{"a":1,"b":2,"c":3}' /><br />
+    <input id="func" value="x => x * 2" /><br />
+    <button onclick="run()">Запустить</button>
+    <pre id="result"></pre>
+
+    <script>
+      function mapObject(obj, callback) {
+        const result = {};
+        for (let key in obj) {
+          result[key] = callback(obj[key]);
+        }
+        return result;
+      }
+
+      function run() {
+        const obj = JSON.parse(document.getElementById("obj").value);
+        const func = eval(document.getElementById("func").value);
+        document.getElementById("result").innerText = JSON.stringify(
+          mapObject(obj, func)
+        );
+      }
+    </script>
+  </body>
+</html>
