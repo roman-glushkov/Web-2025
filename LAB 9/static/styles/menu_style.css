@@ -19,3 +19,22 @@ body {
   padding: 48px 0px 0px 24px;
   border-right: 1px solid #2222220d;
 }
+.menu__item {
+  height: 56px;
+  position: relative;
+}
+.menu__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.menu__indicator {
+  position: relative;
+  left: 10px;
+  width: 4px;
+  top: -11px;
+}
+
+.menu__link {
+  display: block;
+}
