@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Инициализация слайдеров в ленте
   document.querySelectorAll(".post__slider").forEach((slider) => {
     const slides = slider.querySelectorAll(".post__slide");
     if (slides.length <= 1) return;
@@ -44,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateSlider();
   });
-
-  // Инициализация модального окна
   const modal = document.getElementById("imageModal");
   const modalSlider = modal.querySelector(".modal__slider");
 
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".modal__close").addEventListener("click", closeModal);
 
-  // Закрытие модального окна по ESC
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       closeModal();
@@ -73,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Модальное окно
 let currentModalImages = [];
 let currentModalIndex = 0;
 let activePostSlider = null;
@@ -87,7 +82,6 @@ function openModal(sliderId, activeIndex) {
     (slide) => slide.querySelector("img").src
   );
 
-  // Скрываем элементы управления слайдера
   activePostSlider = slider;
   const prevBtn = slider.querySelector(".post__slider-button--prev");
   const nextBtn = slider.querySelector(".post__slider-button--next");
@@ -153,3 +147,40 @@ function navigateModalSlide(direction) {
   currentModalIndex = newIndex;
   document.getElementById("modalCurrentSlide").textContent = newIndex + 1;
 }
+
+function initTextCollapsing() {
+  document.querySelectorAll(".post__text").forEach((textElement) => {
+    const post = textElement.closest(".post");
+    const moreLink = post.querySelector(".post__more-link");
+
+    if (textElement.scrollHeight > textElement.clientHeight) {
+      moreLink.style.display = "block";
+    }
+  });
+}
+
+function toggleText(button) {
+  const post = button.closest(".post");
+  const textElement = post.querySelector(".post__text");
+  const moreText = post.querySelector(".post__more-text");
+
+  if (textElement.classList.contains("collapsed")) {
+    textElement.classList.remove("collapsed");
+    moreText.textContent = "свернуть";
+    button.dataset.action = "collapse";
+  } else {
+    textElement.classList.add("collapsed");
+    moreText.textContent = "ещё";
+    button.dataset.action = "expand";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".post__more-link").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      toggleText(this);
+    });
+  });
+  initTextCollapsing();
+});

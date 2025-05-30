@@ -1,4 +1,3 @@
-/* Блок page */
 .page {
   width: 1440px;
   height: 1080px;
@@ -11,7 +10,6 @@
   height: 100%;
 }
 
-/* Блок header */
 .header {
   position: relative;
   width: 100%;

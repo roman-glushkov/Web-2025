@@ -86,12 +86,12 @@ function getUserById($users, $id) {
         </div>
         
         <div class="post__content">
-          <p class="post__text"><?= $post['text'] ?></p>
-          <a href="#" class="post__more-link">
-            <p class="post__more-text">ещё</p>
-          </a>
-          <time class="post__time"><?= date('d.m.Y H:i', $post['timestamp']) ?></time>
-        </div>
+    <p class="post__text collapsed"><?= $post['text'] ?></p>
+    <a href="#" class="post__more-link" data-action="expand">
+        <p class="post__more-text">ещё</p>
+    </a>
+    <time class="post__time"><?= date('d.m.Y H:i', $post['timestamp']) ?></time>
+</div>
       </article>
     <?php endif; endforeach; ?>
   </main>
