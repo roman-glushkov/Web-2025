@@ -8,17 +8,21 @@
 
 .form_blok {
   position: absolute;
-  width: 143px;
-  height: 158px;
-  top: 158px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 8px;
-  box-sizing: border-box;
+  justify-content: center;
+}
+
+.form_blok_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form_blok_button {
@@ -31,14 +35,14 @@
   width: 143px;
   height: 48px;
   font-weight: 500;
-  margin-top: auto;
+  margin-top: 16px;
 }
 
 .form_blok_picture {
   width: 81px;
   height: auto;
-  margin-top: 8px;
 }
+
 .form_adding {
   position: absolute;
   width: 130px;
@@ -64,8 +68,9 @@
   color: #3f8ae0;
   cursor: pointer;
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
 }
+
 .form_input {
   width: 474px;
   height: auto;
@@ -75,9 +80,21 @@
   position: absolute;
   display: flex;
   align-items: center;
-  border: none;
+  border: none; /* Убираем границу */
+  outline: none; /* Убираем контур при фокусе */
   bottom: -84px;
+  background-color: transparent; /* Делаем фон прозрачным */
+  box-shadow: none; /* Убираем тень */
 }
+.form_input:invalid {
+  border: 1px solid #ff6b6b; /* Красная рамка при ошибке */
+}
+.form_input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
 .form_impart {
   position: absolute;
   font-size: 16px;
@@ -85,9 +102,91 @@
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: not-allowed;
   width: 140px;
   height: 48px;
   font-weight: 500;
   bottom: -491px;
+}
+
+.form_impart.active {
+  background-color: #222222;
+  cursor: pointer;
+}
+
+/* Стили для слайдера */
+.post__slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+}
+
+.post__slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.post__slide.active {
+  opacity: 1;
+}
+
+.post__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.post__slider-indicator {
+  position: absolute;
+  width: 44px;
+  height: 24px;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 20px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Golos UI", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: -0.15px;
+  z-index: 10;
+}
+
+.post__slider-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  border-radius: 999px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.post__slider-button--prev {
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  background-image: url("../images/Slider Button left.png");
+}
+
+.post__slider-button--next {
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  background-image: url("../images/Slider Button right.png");
 }
