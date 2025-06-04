@@ -80,14 +80,14 @@
   position: absolute;
   display: flex;
   align-items: center;
-  border: none; /* Убираем границу */
-  outline: none; /* Убираем контур при фокусе */
+  border: none;
+  outline: none;
   bottom: -84px;
-  background-color: transparent; /* Делаем фон прозрачным */
-  box-shadow: none; /* Убираем тень */
+  background-color: transparent;
+  box-shadow: none;
 }
 .form_input:invalid {
-  border: 1px solid #ff6b6b; /* Красная рамка при ошибке */
+  border: 1px solid #ff6b6b;
 }
 .form_input:focus {
   outline: none;
@@ -114,7 +114,6 @@
   cursor: pointer;
 }
 
-/* Стили для слайдера */
 .post__slider {
   position: relative;
   width: 100%;

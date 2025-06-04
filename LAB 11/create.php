@@ -29,7 +29,6 @@
       <input type="file" id="fileInput" accept="image/*" style="display: none;" multiple />
       <div class="form_blok" id="uploadArea">
         <div class="post__slider" id="imageSlider">
-          <!-- Слайды будут добавляться здесь -->
         </div>
         <div class="form_blok_empty" id="emptyState">
           <img src="static/images/picture.png" alt="пикча" class="form_blok_picture" />
@@ -40,7 +39,6 @@
         <img src="static/images/square.png" alt="plus" class="form_adding_plus" />
         <button class="form_adding_text" id="uploadButton2">Добавить фото</button>
       </div>
-      <!-- Добавим ID для поля ввода текста -->
       <input type="text" class="form_input" id="captionInput" placeholder="Добавьте подпись..." />
       <button class="form_impart" id="shareButton" disabled>Поделиться</button>
     </div>
