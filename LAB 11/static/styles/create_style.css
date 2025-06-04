@@ -1,0 +1,93 @@
+.form {
+  background-color: #f2f3f5;
+  width: 474px;
+  height: 474px;
+  margin: 82px auto;
+  position: relative;
+}
+
+.form_blok {
+  position: absolute;
+  width: 143px;
+  height: 158px;
+  top: 158px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  box-sizing: border-box;
+}
+
+.form_blok_button {
+  font-size: 16px;
+  background-color: #222222;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 143px;
+  height: 48px;
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.form_blok_picture {
+  width: 81px;
+  height: auto;
+  margin-top: 8px;
+}
+.form_adding {
+  position: absolute;
+  width: 130px;
+  height: 30px;
+  bottom: -50px;
+  display: flex;
+  align-items: center;
+}
+
+.form_adding_plus {
+  width: 16px;
+  height: 16px;
+  margin: 7px 4px 7px 0;
+}
+
+.form_adding_text {
+  width: 110px;
+  height: 18px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: -0.15px;
+  color: #3f8ae0;
+  cursor: pointer;
+  border: none;
+  background-color: #ffffff;
+}
+.form_input {
+  width: 474px;
+  height: auto;
+  font-size: 15px;
+  font-weight: 400;
+  color: #808080;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border: none;
+  bottom: -84px;
+}
+.form_impart {
+  position: absolute;
+  font-size: 16px;
+  background-color: #b4b4b4;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 140px;
+  height: 48px;
+  font-weight: 500;
+  bottom: -491px;
+}

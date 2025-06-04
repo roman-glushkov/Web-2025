@@ -1,6 +1,7 @@
 .page {
-  width: 1440px;
-  height: 1080px;
+  width: 100%;
+  height: 100vh;
+  /*height: 1080px;*/
   font-family: "Golos UI", sans-serif;
 }
 
@@ -17,9 +18,8 @@
 
 .header__title {
   font-size: 125px;
-  position: absolute;
-  top: 190px;
-  left: 179px;
+  position: relative; /* был absolute */
+  padding: 190px 0 0 179px; /* был top и left */
   line-height: 180px;
   letter-spacing: -1.5px;
 }
@@ -27,14 +27,15 @@
 .header__image {
   position: absolute;
   width: 462px;
-  height: 501px;
-  top: 289px;
-  left: 269px;
+  height: auto;
+  margin: 289px 0 0 269px;
+  /*top: 289px;
+  left: 269px;*/
 }
 
 .form {
   position: absolute;
-  width: 343px;
+  width: 23.82%;
   top: 415px;
   left: 838px;
 }

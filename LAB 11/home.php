@@ -37,7 +37,7 @@ function getUserById($users, $id) {
       </a>
     </div>
     <div class="menu__item">
-      <a href="login.html" class="menu__link">
+      <a href="create.php" class="menu__link">
         <img src="static/images/plus.png" alt="войти" class="menu__icon" />
       </a>
     </div>
